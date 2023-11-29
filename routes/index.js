@@ -9,7 +9,6 @@ passport.use(new localStrategy(User.authenticate()));
 router.get("/", function (req, res, next) {
   res.render("index", { admin: req.user });
 });
-
 router.post(
   "/",
   passport.authenticate("local", {
@@ -76,9 +75,9 @@ router.get("/updateBudget", isLoggedIn, async function (req, res, next) {
 });
 router.post("/updateBudget", isLoggedIn, async function (req, res, next) {
   try {
-    const data = await content({budget:req.user.budget});
-   await data.save();
-   res.redirect('/profile')
+    const data = await content({ budget: req.user.budget });
+    await data.save();
+    res.redirect("/profile");
   } catch (error) {
     res.send(error);
   }
