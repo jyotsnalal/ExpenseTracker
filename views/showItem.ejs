@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheets/showItem.css" />
+  </head>
+  <body>
+    <%- include('nav')%>
+
+    <div class="content">
+      <div class="logout">
+        <h3><a href="/signout">LOG OUT</a></h3>
+      </div>
+      <div class="heading">
+        <h1>YOUR EXPENSES</h1>
+      </div>
+      <div class="totalSpends">
+        <form action="/filter" method="post">
+          <input type="text" name="filter" placeholder="SEARCH" />
+          <button>FIND</button>
+        </form>
+        <div class="spend">
+          <h3>TOTAL SPEND Rs. <%= total%> <span class="total"></span></h3>
+        </div>
+      </div>
+      <div class="cards">
+        <%data.forEach((el)=>{%>
+        <div class="card">
+          <div class="top">
+            <h1><%=el.title%></h1>
+            <h1 class="category"><%=el.category%></h1>
+          </div>
+          <div class="last">
+            <h1>Rs. <span class="span-last"><%=el.amount%></span></h1>
+            <h1>
+              Description: <span class="span-last"><%=el.description%></span>
+            </h1>
+          </div>
+          <div class="button">
+            <a href="/delete/<%=el._id%>" class="delete">DELETE</a>
+            <a href="/update/<%=el._id%>" class="update">UPDATE</a>
+          </div>
+        </div>
+        <%})%>
+      </div>
+    </div>
+  </body>
+</html>

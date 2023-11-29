@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/stylesheets/update.css">
+</head>
+<body>
+    <%- include("nav.ejs")%>
+    <div class="container">
+      <form action="/update/<%= data._id%>" method="post" class="updateForm">
+        <h1>UPDATE EXPENSES</h1>
+        <input type="text" placeholder="TITLE" name="title" value="<%=data.title%>" />
+        <input type="text" placeholder="AMOUNT" name="amount" value="<%=data.amount%>"/>
+
+        <select name="category" id="category" value="<%=data.category%>">
+          <option value="category">CATEGORY</option>
+          <option value="groceries">Groceries</option>
+          <option value="utilities">Utilies(Electricity, Water, Gas)</option>
+          <option value="rent">Rent</option>
+          <option value="rent">Food</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="shopping">Shopping</option>
+          <option value="personal care">Personal Care</option>
+          <option value="education">Education</option>
+          <option value="travel">Travel</option>
+          <option value="saving">Saving/Investment</option>
+          <option value="miscellaneous">Miscellaneous</option>
+          <option value="medical expenses">Medical Expenses/ Healthcare</option>
+          <option value="transportation">
+            Transportation(Fuel, Public Transport)
+          </option>
+        </select>
+        <input
+          type="text"
+          placeholder=" ENTER DESCRIPTION"
+          name="description"
+          value="<%=data.description%>"
+        />
+        <button>SUBMIT</button>
+      </form>
+    </div>
+  </body>
+</html>
+

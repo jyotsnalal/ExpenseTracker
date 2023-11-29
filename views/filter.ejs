@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/filter.css" />
+  </head>
+  <body>
+    <%- include('nav')%>
+    <div class="content">
+        <div class="logout">
+            <h3><a href="/signout">LOG OUT</a></h3>
+          </div>
+      <div class="heading">
+        <h1>YOUR EXPENSES</h1>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="top">
+            <h1><%=finddata.title%></h1>
+            <h1 class="category"><%=finddata.category%></h1>
+          </div>
+          <div class="last">
+            <h1>Rs. <span class="span-last"><%=finddata.amount%></span></h1>
+            <h1>
+              Description:
+              <span class="span-last"><%=finddata.description%></span>
+            </h1>
+          </div>
+          <div class="button">
+            <a href="/delete/<%=finddata._id%>" class="delete">DELETE</a>
+            <a href="/update/<%=finddata._id%>" class="update">UPDATE</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

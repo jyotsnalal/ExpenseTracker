@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/signup.css">
+</head>
+<body>
+    <%- include("nav.ejs")%>
+    <div class="card">
+        <form action="/signup" method="post">
+          <h1>SIGNUP</h1>
+          <input type="text" name="username"  placeholder="USERNAMAE" /> <br />
+          <input type="email" name="email" placeholder="EXAMPLE@EMAIL.COM" /> <br />
+          <input type="password" name="password" placeholder="PASSWORD" /> <br />
+          
+          <button>SIGNUP</button>
+          <a href="/" class="signin">SIGNIN</a>
+        </form>
+  
+      </div>
+</body>
+</html>

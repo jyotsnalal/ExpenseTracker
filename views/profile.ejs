@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheets/profile.css" />
+  </head>
+  <body>
+    <%- include("nav.ejs")%>
+    <div class="card">
+      <div class="totalSpends">
+        <div class="budgets">
+          <h3>TOTAL BUDGET Rs.</h3>
+        </div>
+        <div class="spend">
+          <h3>TOTAL SPEND Rs. <span class="total"><%= total%></span></h3>
+        </div>
+        <div class="logout">
+          <h3><a href="/signout">LOG OUT</a></h3>
+        </div>
+      </div>
+      <div class="data">
+        <div class="right">
+          <button>
+            <a href="/signout">SIGN OUT</a>
+          </button>
+        </div>
+        <div class="left">
+          <h1><%=admin.username%></h1>
+          <h1><%=admin.email%></h1>
+        </div>
+
+        <div class="button">
+          <button><a href="/reset" class="reset">RESET PASSWORD</a></button>
+          <button><a href="/updateBudget">UPDATE BUDGET</a></button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

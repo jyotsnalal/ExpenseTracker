@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="stylesheets/updateBudget.css">
+</head>
+<body>
+    <%- include("nav.ejs")%>
+    <div class="card">       
+    <form action="/updateBudget" method="post">
+        <h1>UPDATE BUDGET</h1>
+    <input type="number" name="budget" placeholder="BUDGET">
+    <button class="submit">SUBMIT</button>
+    </form>
+    </div>
+</body>
+</html>

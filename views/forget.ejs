@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="stylesheets/forget.css">
+</head>
+<body>
+    <%- include("nav.ejs")%>
+    <div class="card">
+       
+    <form action="/forget" method="post" class="form-forgot">
+        <h1>FORGOT PASSWORD</h1>
+    <input type="text" name="username" placeholder="USERNAME">
+    <input type="password" name='newpassword' placeholder="NEW PASSWORD">
+    <button class="forget">FORGOT PASSWORD</button>
+    </form>
+    </div>
+</body>
+</html>
