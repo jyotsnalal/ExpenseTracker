@@ -10,7 +10,11 @@
     <div class="card">
       <div class="totalSpends">
         <div class="budgets">
-          <h3>TOTAL BUDGET Rs.</h3>
+          <%if(admin.budget<=0){%>
+          <h3>TOTAL BUDGET Rs. 00</h3>
+          <%}else{%>
+          <h3>TOTAL BUDGET Rs.<%= admin.budget %></h3>
+          <%}%>
         </div>
         <div class="spend">
           <h3>TOTAL SPEND Rs. <span class="total"><%= total%></span></h3>

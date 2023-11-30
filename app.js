@@ -10,6 +10,7 @@ const session = require("express-session");
 const User = require("./model/userModel");
 require("./model/db");
 require("./model/content");
+require('./model/budget')
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 

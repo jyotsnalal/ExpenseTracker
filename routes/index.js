@@ -4,11 +4,13 @@ const User = require("../model/userModel");
 const passport = require("passport");
 const localStrategy = require("passport-local");
 const content = require("../model/content");
+const budget = require("../model/budget");
 passport.use(new localStrategy(User.authenticate()));
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.render("index", { admin: req.user });
 });
+
 router.post(
   "/",
   passport.authenticate("local", {
@@ -66,7 +68,7 @@ router.get("/profile", isLoggedIn, async function (req, res, next) {
   const data = await req.user.populate("expenses");
   const exp = data.expenses;
   const total = findtotal(exp);
-
+  console.log(data, exp, total);
   res.render("profile", { admin: req.user, total });
 });
 
@@ -75,8 +77,7 @@ router.get("/updateBudget", isLoggedIn, async function (req, res, next) {
 });
 router.post("/updateBudget", isLoggedIn, async function (req, res, next) {
   try {
-    const data = await content({ budget: req.user.budget });
-    await data.save();
+    await User.findByIdAndUpdate(req.user._id, { budget: req.body.budget });
     res.redirect("/profile");
   } catch (error) {
     res.send(error);
